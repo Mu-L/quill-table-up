@@ -10,7 +10,7 @@ async function main() {
   let wss: WebSocketServer | undefined;
   if (isDev) {
     wss = new WebSocketServer({ port: 8080 });
-    startServer();
+    startServer(true);
   }
   function reloadClients() {
     console.log(`[${new Date().toLocaleString()}] Build completed successfully!`);

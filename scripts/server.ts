@@ -7,7 +7,7 @@ import { projectRoot } from './constants';
 const hostname = '127.0.0.1';
 const PORT = 5500;
 
-export function startServer() {
+export function startServer(autoOpenBrowser: boolean) {
   const server = http.createServer((req, res) => {
     const filePath = join(projectRoot, req.url === '/' ? 'index.html' : req.url!);
     const fileExtname = String(extname(filePath)).toLowerCase();
@@ -37,10 +37,12 @@ export function startServer() {
 
   server.listen(PORT, hostname, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
-    open(`http://localhost:${PORT}/docs/index.html`)
-      .catch((error) => {
-        console.error('Failed to open browser:', error);
-      });
+    if (autoOpenBrowser) {
+      open(`http://localhost:${PORT}/docs/index.html`)
+        .catch((error) => {
+          console.error('Failed to open browser:', error);
+        });
+    }
   });
 
   return server;
