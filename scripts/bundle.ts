@@ -21,7 +21,7 @@ const baseOptions = {
   plugins: [],
   ignoreWatch: ['./src/__tests__', './src/style'],
   external: ['quill'],
-  inlineOnly: ['@floating-ui/dom'],
+  noExternal: ['@floating-ui/dom'],
   loader: {
     '.svg': 'text',
   } as const,
@@ -84,6 +84,7 @@ export async function buildTS({
       : build({
           ...options,
           format: ['esm'],
+          outExtensions: () => ({ js: '.js' }),
         }),
     build(
       {
