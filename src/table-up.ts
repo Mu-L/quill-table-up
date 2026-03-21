@@ -380,6 +380,8 @@ export class TableUp {
       fullSwitch: true,
       icon: icons.table,
       autoMergeCell: true,
+      pasteStyleSheet: false,
+      pasteDefaultTagStyle: false,
       modules: [],
     } as TableUpOptions, rest);
   }

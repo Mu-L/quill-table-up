@@ -1,4 +1,4 @@
-import { toCamelCase, toKebabCase } from './transformer';
+import { toCamelCase, toKebabCase } from '../transformer';
 
 export function getInlineStyles(domNode: HTMLElement): Record<string, string> {
   const inlineStyles: Record<string, string> = {};
